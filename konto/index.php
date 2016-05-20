@@ -1,33 +1,36 @@
 <?php
 // KONTO
-require '/virtual/itk.cba.pl/sincos.itk.cba.pl/verification/index.php';
+require '/virtual/itk.cba.pl/sincos/scripts/config.php';
+require $phplocal.'/verification/index.php';
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Sinus cosinus - Konto</title>
 		<meta charset="UTF-8">
-		<link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-		<link rel="stylesheet" type="text/css" href="/css/sincos.css">
+		<link rel="icon" href="<?php echo $httplocal;?>/images/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="<?php echo $httplocal;?>/css/main.css">
+		<meta name="author" content="Patryk Kisielewski">
+		<meta name="description" content="Platforma edukacyjna">
 	</head>
 	<body>
 		<div class="area-for-logo"></div>
 		<div class="headline">
 			<div class="headline-content">
-				<a href="/"><img src="/logo/logo_sincos.png" class="headline-logo"/></a>
+				<a href="<?php echo $httplocal;?>/"><img src="<?php echo $httplocal;?>/images/logo_sincos.png" class="headline-logo"/></a>
 			<div class="user-menu">
 					<div class="user-menu-head"><?php echo $users_login;?></div>
-					<a href="/logout" class="user-menu-link"><div class="user-menu-content">Wyloguj</div></a>
-					<a href="/konto" class="user-menu-link"><div class="user-menu-content">Konto</div></a>
+					<a href="<?php echo $httplocal;?>/logout" class="user-menu-link"><div class="user-menu-content">Wyloguj</div></a>
+					<a href="<?php echo $httplocal;?>/konto" class="user-menu-link"><div class="user-menu-content">Konto</div></a>
 				</div>
 			</div>
 		</div>
 		<div class="headline-navi-bar-area">
 			<div class="headline-navi-bar">
-				<a href="/" class="headline-navi-link">strona główna</a> / 
-				<a href="/start"  class="headline-navi-link">start</a> / 
-				<a href="/testy"  class="headline-navi-link">testy</a> / 
-				<a href="/konto" class="headline-navi-link"><?php echo $users_login;?></a>
+				<a href="<?php echo $httplocal;?>/" class="headline-navi-link">strona główna</a> / 
+				<a href="<?php echo $httplocal;?>/start"  class="headline-navi-link">start</a> / 
+				<a href="<?php echo $httplocal;?>/testy"  class="headline-navi-link">testy</a> / 
+				<a href="<?php echo $httplocal;?>/konto" class="headline-navi-link"><?php echo $users_login;?></a>
 			</div>
 		</div>	
 		<div class="main-container">
@@ -41,10 +44,6 @@ require '/virtual/itk.cba.pl/sincos.itk.cba.pl/verification/index.php';
 			<h2 class="article-title" id="o_projekcie">Typ konta</h2>
 			<p class="article-paragraph"><?php if($users_type == 1) echo "Uczeń"; else echo "---"; ?></p>
 <?php
-$servername = "localhost";
-$username = "itkscdb";
-$password = "21hasGUODTlo123";
-$database = "itk_cba_pl";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
@@ -83,6 +82,7 @@ $conn->close();
 ?>
 			</p>
 		</div>
-		<div class="main-footer">2015 - KIMBI Projects</div>		
+		<div class="main-footer">&#x24D2 Patryk Kisielewski 2015 - 2016<br>
+			Projekt wspierany przez KIMBI Projects</div>
 	</body>
 </html>
