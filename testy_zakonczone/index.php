@@ -49,7 +49,6 @@ require $phplocal.'/scripts/verification.php';
 				<tr><td class="start-table-name"><a>Konkurs Sinus i cosunus</a></td><td class="start-table-date">13-12-2015 20:15</td><td class="start-table-date">13-12-2015 23:15</td><td class="start-table-action"><a><div class="start-table-button" style="display: inline; padding: 0 7px;">Info</div></a> <a><div class="start-table-button" style="display: inline; padding: 0 7px;">Mój wynik</div></a></td></tr>
 			</table>
 		</div>
-		<div class="main-footer">&#x24D2 Patryk Kisielewski 2015 - 2016<br>
-			Projekt wspierany przez KIMBI Projects</div>
+		<?php include $phplocal.'/scripts/footer.php';?>
 	</body>
 </html>

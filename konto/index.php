@@ -88,7 +88,6 @@ $conn->close();
 ?>
 			</p>
 		</div>
-		<div class="main-footer">&#x24D2 Patryk Kisielewski 2015 - 2016<br>
-			Projekt wspierany przez KIMBI Projects</div>
+		<?php include $phplocal.'/scripts/footer.php';?>
 	</body>
 </html>

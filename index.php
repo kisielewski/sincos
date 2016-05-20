@@ -101,7 +101,6 @@ if(!isset($_SESSION["login_token"])){
 			<p class="article-paragraph">Masz pytania? Napisz e-mail: <a class="link" href="mailto:admin@itk.cba.pl">admin@itk.cba.pl</a></p>
 			<img src="<?php echo $httplocal;?>/images/logo_itk.png" style="display: inline-block; margin: 30px 100px; vertical-align: middle;"/><img src="<?php echo $httplocal;?>/images/logo_kimbi.png" style="display: inline-block; margin: 30px 120px; vertical-align: middle;"/>
 		</div>
-		<div class="main-footer">&#x24D2 Patryk Kisielewski 2015 - 2016<br>
-			Projekt wspierany przez KIMBI Projects</div>
+		<?php include $phplocal.'/scripts/footer.php';?>
 	</body>
 </html>
