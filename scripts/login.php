@@ -9,6 +9,9 @@ require '/virtual/itk.cba.pl/sincos/scripts/config.php';
 ***************************************/
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	if($_POST["login"] != "" && $_POST["passwd"] != ""){
+		
+		$login_text = htmlspecialchars($_POST["login"]);
+		$passwd_text = htmlspecialchars($_POST["passwd"]);
 
 		$conn = new mysqli($servername, $username, $password, $database);
 
@@ -18,13 +21,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		
 		mysqli_set_charset($conn,"utf8");
 		
-		$sql = "SELECT SC_passwd.password, SC_users.usersID FROM SC_passwd, SC_users WHERE SC_passwd.usersID=SC_users.usersID AND SC_users.login='".$_POST["login"]."'";
+		$sql = "SELECT SC_passwd.password, SC_users.usersID FROM SC_passwd, SC_users WHERE SC_passwd.usersID=SC_users.usersID AND SC_users.login='".$login_text."'";
 		$result = $conn->query($sql);
 
 		if ($result->num_rows > 0) {
 			$row = $result->fetch_assoc();
 			$userID = $row["usersID"];
-			if($row["password"] == $_POST["passwd"]){
+			if($row["password"] == $passwd_text){
 				$token = md5(rand(200, getrandmax()));
 				
 				$sql = "SELECT * FROM SC_token WHERE usersID=".$userID;
@@ -36,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				}
 				$conn->query($sql);
 				
-				$sql = "INSERT INTO SC_logins (usersID, date, ip) VALUES (".$userID.", '".date('Y-m-d H:i:s')."', '".$_SERVER['REMOTE_ADDR']."')";
+				$sql = "UPDATE SC_users SET last_login_date='".date('Y-m-d H:i:s')."', last_login_ip='".$_SERVER['REMOTE_ADDR']."' WHERE usersID=".$userID.";";
 				$conn->query($sql);
 				
 				session_start();
@@ -46,6 +49,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				
 			} else {
 				$error_log = 1;
+				$sql = "UPDATE SC_users SET wrong_login_date='".date('Y-m-d H:i:s')."', wrong_login_ip='".$_SERVER['REMOTE_ADDR']."' WHERE usersID=".$userID.";";
+				$conn->query($sql);
 			}
 		} else {
 			$error_log = 1;
