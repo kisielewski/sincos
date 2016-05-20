@@ -1,5 +1,8 @@
 <?php
+require '/virtual/itk.cba.pl/sincos/scripts/config.php';
 /***************************************
+/
+/	Sinus cosinus - Patryk Kisielewski
 /
 /	Skrypt logowania
 /
@@ -7,8 +10,6 @@
 ***************************************/
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	if($_POST["login"] != "" && $_POST["passwd"] != ""){
-	
-	require '/virtual/itk.cba.pl/sincos/scripts/config.php';
 
 		$conn = new mysqli($servername, $username, $password, $database);
 

@@ -1,12 +1,20 @@
 <?php
 require '/virtual/itk.cba.pl/sincos/scripts/config.php';
+/***************************************
+/
+/	Sinus cosinus - Patryk Kisielewski
+/
+/	Strona główna
+/
+***************************************/
+session_start();
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Sinus cosinus - Strona główna</title>
 		<meta charset="UTF-8">
-		<link rel="icon" href="<?php echo $httplocal;?>/images/favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="<?php echo $httplocal;?>/images/sincos.ico"/>
 		<link rel="stylesheet" type="text/css" href="<?php echo $httplocal;?>/css/main.css">
 		<meta name="author" content="Patryk Kisielewski">
 		<meta name="description" content="Platforma edukacyjna">
@@ -17,10 +25,8 @@ require '/virtual/itk.cba.pl/sincos/scripts/config.php';
 			<div class="headline-content">
 				<a href="<?php echo $httplocal;?>/"><img src="<?php echo $httplocal;?>/images/logo_sincos.png" class="headline-logo"/></a>
 <?php
-//MAIN PAGE
-session_start();
 if(isset($_SESSION["login_token"])){
-	require $phplocal.'/verification/index.php';
+	require $phplocal.'/scripts/verification.php';
 ?>	
 				<div class="user-menu">
 					<div class="user-menu-head"><?php echo $users_login;?></div>
@@ -56,7 +62,7 @@ if(isset($_SESSION["login_token"])){
 <?php
 if(!isset($_SESSION["login_token"])){
 	$error_log = 0;
-	require $phplocal.'/login/index.php';
+	require $phplocal.'/scripts/login.php';
 ?>
 					<div class="main-page-login-area">
 						<div class="main-page-login">
@@ -80,7 +86,7 @@ if(!isset($_SESSION["login_token"])){
 	echo $users_login."!";
 ?>
 							<br>
-							<a href="/start"><div class="welcome-button">Przejdź do strony startowej</div></a>
+							<a href="<?php echo $httplocal;?>/start"><div class="welcome-button">Przejdź do strony startowej</div></a>
 						</div>
 					</div>
 <?php

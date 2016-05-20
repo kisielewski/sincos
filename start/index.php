@@ -1,7 +1,14 @@
 <?php
-// START
 require '/virtual/itk.cba.pl/sincos/scripts/config.php';
-require $phplocal.'/verification/index.php';
+/***************************************
+/
+/	Sinus cosinus - Patryk Kisielewski
+/
+/	Strona startowa
+/
+/
+***************************************/
+require $phplocal.'/scripts/verification.php';
 ?>
 <!DOCTYPE html>
 <html>
