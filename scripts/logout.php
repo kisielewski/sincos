@@ -6,7 +6,6 @@ require '/virtual/itk.cba.pl/sincos/scripts/config.php';
 /
 /	Skrypt logout
 /
-/
 ***************************************/
 session_start();
 if(isset($_SESSION["login_token"])){

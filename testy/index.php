@@ -6,7 +6,6 @@ require '/virtual/itk.cba.pl/sincos/scripts/config.php';
 /
 /	Strona testy
 /
-/
 ***************************************/
 require $phplocal.'/scripts/verification.php';
 ?>
@@ -15,7 +14,7 @@ require $phplocal.'/scripts/verification.php';
 	<head>
 		<title>Sinus cosinus - Testy</title>
 		<meta charset="UTF-8">
-		<link rel="icon" href="<?php echo $httplocal;?>/images/favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="<?php echo $httplocal;?>/images/sincos.ico"/>
 		<link rel="stylesheet" type="text/css" href="<?php echo $httplocal;?>/css/main.css">
 		<meta name="author" content="Patryk Kisielewski">
 		<meta name="description" content="Platforma edukacyjna">
@@ -37,12 +36,12 @@ require $phplocal.'/scripts/verification.php';
 				<a href="<?php echo $httplocal;?>/" class="headline-navi-link">strona główna</a> / 
 				<a href="<?php echo $httplocal;?>/start"  class="headline-navi-link">start</a> / 
 				<a href="<?php echo $httplocal;?>/testy"  class="headline-navi-link">testy</a> / 
-				<a href="<?php echo $httplocal;?>/konto" class="headline-navi-link"><?php echo $users_login;?></a>
+				<a href="<?php echo $httplocal;?>/konto" class="headline-navi-link"><?php echo $users_log;?></a>
 			</div>
 		</div>	
 		<div class="main-container">
 			<h1 class="start-headline">Testy aktualne
-				<a href="<?php echo $httplocal;?>/start/testy_zakonczone"><div class="start-bookmark">Testy zakończone</div></a>
+				<a href="<?php echo $httplocal;?>/testy_zakonczone"><div class="start-bookmark">Testy zakończone</div></a>
 				<a><div class="start-bookmark-open">Testy aktualne</div></a>
 			</h1>
 			<table class="start-table">

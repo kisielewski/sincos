@@ -1,14 +1,20 @@
 <?php
-// KONTO
 require '/virtual/itk.cba.pl/sincos/scripts/config.php';
-require $phplocal.'/verification/index.php';
+/***************************************
+/
+/	Sinus cosinus - Patryk Kisielewski
+/
+/	Strona konto
+/
+***************************************/
+require $phplocal.'/scripts/verification.php';
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Sinus cosinus - Konto</title>
 		<meta charset="UTF-8">
-		<link rel="icon" href="<?php echo $httplocal;?>/images/favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="<?php echo $httplocal;?>/images/sincos.ico"/>
 		<link rel="stylesheet" type="text/css" href="<?php echo $httplocal;?>/css/main.css">
 		<meta name="author" content="Patryk Kisielewski">
 		<meta name="description" content="Platforma edukacyjna">
@@ -30,7 +36,7 @@ require $phplocal.'/verification/index.php';
 				<a href="<?php echo $httplocal;?>/" class="headline-navi-link">strona główna</a> / 
 				<a href="<?php echo $httplocal;?>/start"  class="headline-navi-link">start</a> / 
 				<a href="<?php echo $httplocal;?>/testy"  class="headline-navi-link">testy</a> / 
-				<a href="<?php echo $httplocal;?>/konto" class="headline-navi-link"><?php echo $users_login;?></a>
+				<a href="<?php echo $httplocal;?>/konto" class="headline-navi-link"><?php echo $users_log;?></a>
 			</div>
 		</div>	
 		<div class="main-container">
@@ -38,9 +44,9 @@ require $phplocal.'/verification/index.php';
 			<h2 class="article-title" id="o_projekcie">Login</h2>
 			<p class="article-paragraph"><?php echo $users_log;?></p>
 			<h2 class="article-title" id="o_projekcie">Imię</h2>
-			<p class="article-paragraph"><?php if($users_name != 0) echo $users_name; else echo "---"; ?></p>
+			<p class="article-paragraph"><?php if($users_name != '0') echo $users_name; else echo "---"; ?></p>
 			<h2 class="article-title" id="o_projekcie">Nazwisko</h2>
-			<p class="article-paragraph"><?php if($users_surname != 0) echo $users_surname; else echo "---"; ?></p>
+			<p class="article-paragraph"><?php if($users_surname != '0') echo $users_surname; else echo "---"; ?></p>
 			<h2 class="article-title" id="o_projekcie">Typ konta</h2>
 			<p class="article-paragraph"><?php if($users_type == 1) echo "Uczeń"; else echo "---"; ?></p>
 <?php

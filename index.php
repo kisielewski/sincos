@@ -46,7 +46,7 @@ if(isset($_SESSION["login_token"])){
 				<a href="<?php echo $httplocal;?>/" class="headline-navi-link">strona główna</a> / 
 				<a href="<?php echo $httplocal;?>/start"  class="headline-navi-link">start</a> / 
 				<a href="<?php echo $httplocal;?>/testy"  class="headline-navi-link">testy</a> / 
-				<a href="<?php echo $httplocal;?>/konto" class="headline-navi-link"><?php echo $users_login;?></a>
+				<a href="<?php echo $httplocal;?>/konto" class="headline-navi-link"><?php echo $users_log;?></a>
 			</div>
 		</div>
 <?php
