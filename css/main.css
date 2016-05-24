@@ -279,6 +279,7 @@ a.link:hover {
 	padding-left: 25px;
 	margin: 70px 0 0 0;
 	font-weight: normal;
+	height: 28px;
 }
 .start-table {
 	border-collapse: collapse;
@@ -379,9 +380,11 @@ td.start-table-date {
 	font-size: 13px;
 	background-color: #001f4d;
 	float: right;
-	margin: 3px;
+	margin: 0 3px;
 	color: white;
 	text-align: center;
+	line-height: 22px;
+	vertical-align: middle;
 }
 .start-bookmark-open {
 	width: 150px;
