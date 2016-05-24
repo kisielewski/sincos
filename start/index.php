@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 require '/virtual/itk.cba.pl/sincos/scripts/config.php';
 /***************************************
 /

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $httplocal = "";
 $servername = "";
 $username = "";

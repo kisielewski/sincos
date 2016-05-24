@@ -1,4 +1,4 @@
-/* General */
+﻿/* General */
 html {
 	overflow-y: scroll;
 }
@@ -177,7 +177,7 @@ a.link:hover {
 }
 .login-input {
 	display:block;
-	width: 300px;
+	width: 296px;
 	height: 30px;
 	border: solid #001f4d 2px;
 	font-size: 18px;
