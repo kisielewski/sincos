@@ -42,7 +42,7 @@ require $phplocal.'/scripts/verification.php';
 		<div class="main-container">
 			<h1 class="start-headline">Testy aktualne
 				<a href="<?php echo $httplocal;?>/testy_zakonczone"><div class="start-bookmark">Testy zakończone</div></a>
-				<a><div class="start-bookmark-open">Testy aktualne</div></a>
+				<a href="<?php echo $httplocal;?>/testy"><div class="start-bookmark-open">Testy aktualne</div></a>
 			</h1>
 			<table class="start-table">
 				<tr><th class="start-table-name">Nazwa</th><th class="start-table-date">Przedmiot</th><th class="start-table-date">Początek</th><th class="start-table-date">Koniec</th><th class="start-table-action">Akcja</th></tr>
@@ -55,7 +55,7 @@ require $phplocal.'/scripts/verification.php';
 		
 		mysqli_set_charset($conn,"utf8");
 		
-		$sql = "SELECT test_id, test_name, subject_name, test_start, test_stop FROM SC_tests LEFT JOIN SC_subjects ON test_subj=subjectsID";
+		$sql = "SELECT test_id, test_name, subject_name, test_start, test_stop FROM SC_tests LEFT JOIN SC_subjects ON test_subj=subjectsID ORDER BY test_dateadd DESC";
 		$result = $conn->query($sql);
 		
 		if ($result->num_rows > 0) {
