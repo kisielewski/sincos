@@ -56,7 +56,7 @@ require $phplocal.'/scripts/verification.php';
 		mysqli_set_charset($conn,"utf8");
 		
 		//$sql = "SELECT test_id, test_name, subject_name, test_start, test_stop FROM SC_tests LEFT JOIN SC_subjects ON test_subj=subjectsID ORDER BY test_dateadd DESC";
-		$sql = "SELECT test_id, test_name, subject_name, test_start, test_stop FROM SC_tests LEFT JOIN SC_subjects ON test_subj=subjectsID INNER JOIN SC_class_perm ON test_id=cp_test INNER JOIN SC_users ON cp_class=class WHERE usersID=".$userID." ORDER BY test_dateadd DESC;";
+		$sql = "SELECT test_id, test_name, subject_name, test_start, test_stop, test_dateadd FROM SC_tests LEFT JOIN SC_subjects ON test_subj=subjectsID INNER JOIN SC_class_perm ON test_id=cp_test INNER JOIN SC_users ON cp_class=class WHERE usersID=".$userID." UNION SELECT test_id, test_name, subject_name, test_start, test_stop, test_dateadd FROM SC_tests LEFT JOIN SC_subjects ON test_subj=subjectsID INNER JOIN SC_group_perm ON test_id=grp_test INNER JOIN SC_gr_user ON grp_group=group_id INNER JOIN SC_users ON user=usersID WHERE usersID=".$userID." ORDER BY test_dateadd DESC;";
 		$result = $conn->query($sql);
 		
 		if ($result->num_rows > 0) {
