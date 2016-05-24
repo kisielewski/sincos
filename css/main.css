@@ -279,7 +279,7 @@ a.link:hover {
 	padding-left: 25px;
 	margin: 70px 0 0 0;
 	font-weight: normal;
-	height: 27px;
+	height: 30px;
 }
 .start-table {
 	border-collapse: collapse;
@@ -301,10 +301,10 @@ a.link:hover {
 	text-align: left;
 }
 .start-table-date {
-	width: 17%;
+	width: auto;
 }
 td.start-table-date {
-	font-size: 12px;
+	font-size: 10px;
 }
 .start-table-action {
 }

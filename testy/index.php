@@ -43,10 +43,10 @@ require $phplocal.'/scripts/verification.php';
 			<h1 class="start-headline">Testy aktualne
 				<a href="<?php echo $httplocal;?>/testy_zakonczone"><div class="start-bookmark">Testy zakończone</div></a>
 				<a><div class="start-bookmark-open">Testy aktualne</div></a>
-			</h1>
+			</h1><br>
 			<table class="start-table">
-				<tr><th class="start-table-name">Nazwa</th><th class="start-table-date">Początek</th><th class="start-table-date">Koniec</th><th class="start-table-action">Akcja</th></tr>
-				<tr><td class="start-table-name"><a>Konkurs Sinus i cosunus</a></td><td class="start-table-date">13-12-2015 20:15</td><td class="start-table-date">13-12-2015 23:15</td><td class="start-table-action"><a><div class="start-table-button" style="display: inline; padding: 0 7px;">Info</div></a> <a><div class="start-table-button" style="display: inline; padding: 0 7px;">Rozpocznij</div></a></td></tr>
+				<tr><th class="start-table-name">Nazwa</th><th class="start-table-date">Przedmiot</th><th class="start-table-date">Początek</th><th class="start-table-date">Koniec</th><th class="start-table-action">Akcja</th></tr>
+				<tr><td class="start-table-name"><a>Konkurs Sinus i cosunus</a></td><td class="start-table-date">Matematyka</td><td class="start-table-date">13-12-2015 20:15</td><td class="start-table-date">13-12-2015 23:15</td><td class="start-table-action"><a><div class="start-table-button" style="display: inline; padding: 0 7px;">Info</div></a> <a><div class="start-table-button" style="display: inline; padding: 0 7px;">Rozpocznij</div></a></td></tr>
 			</table>
 		</div>
 		<?php include $phplocal.'/scripts/footer.php';?>
