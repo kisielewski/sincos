@@ -392,9 +392,11 @@ td.start-table-date {
 	font-size: 13px;
 	background-color: #4a8fb5;
 	float: right;
-	margin: 3px;
+	margin: 0 3px;
 	color: white;
 	text-align: center;
+	line-height: 22px;
+	vertical-align: middle;
 }
 .start-bookmark:hover {
 	background-color: #4a8fb5;
