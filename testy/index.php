@@ -13,6 +13,7 @@ $tmp = intval($_GET["p"]);
 if(is_int($tmp) & $tmp>1){
 	$page = $tmp;
 }
+$today = date('Y-m-d G:i:s');
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,28 +55,57 @@ if(is_int($tmp) & $tmp>1){
 <?php
 	$conn = new mysqli($servername, $username, $password, $database);
 
-		if ($conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}
+	
+	mysqli_set_charset($conn,"utf8");
+	
+	$sql = "SELECT SQL_CALC_FOUND_ROWS * FROM (SELECT test_id, test_name, subject_name, test_start, test_stop, test_dateadd, test_rep, IF(ISNULL(solutions), 0, solutions) AS solutions, IF(ISNULL(contin), 0, contin) AS contin FROM SC_tests LEFT JOIN SC_subjects ON test_subj=subjectsID INNER JOIN SC_class_perm ON test_id=cp_test INNER JOIN SC_users ON cp_class=class LEFT JOIN (SELECT score_user, score_test, COUNT(score_id) AS solutions, IF(MIN(score_stop)='0000-00-00 00:00:00', 1, 0) AS contin FROM SC_score GROUP BY score_user, score_test) AS info ON usersID=score_user AND test_id=score_test WHERE usersID=".$userID." AND test_stop>'".$today."') AS data ORDER BY test_dateadd DESC LIMIT ".(15*($page-1)).", 15;";
+	$result = $conn->query($sql);
+	
+	if($result->num_rows > 0) {
+		while($row = $result->fetch_assoc()) {
+			echo '<tr><td class="start-table-name"><a href="'.$httplocal.'/info/'.$row["test_id"].'">'.$row["test_name"].'</a></td><td class="start-table-date">'.$row["subject_name"].'</td><td class="start-table-date">'.date("d-m-Y H:i", strtotime($row["test_start"])).'</td><td class="start-table-date">'.date("d-m-Y H:i", strtotime($row["test_stop"])).'</td><td class="start-table-action"><a href="'.$httplocal.'/info/'.$row["test_id"].'"><div class="start-table-button">Info</div></a>';
+			if($row["test_start"] < $today){
+				if(($row["test_rep"] == 0) || ($row["test_rep"] > $row["solutions"])){
+					echo '<a><div class="start-table-button">';
+					if($row["contin"] == 0){
+						echo 'Rozpocznij';
+					} else {
+						echo 'Kontynuuj';
+					}
+					echo '</div></a>';
+				} elseif($row["test_rep"] == $row["solutions"]){
+					if($row["contin"] == 0){
+						echo '<div class="start-table-button start-table-button-block" title="Już rozwiązałeś ten test">Rozpocznij</div>';
+					} else {
+						echo '<a><div class="start-table-button">Kontynuuj</div></a>';
+					}
+				} else {
+					echo '<div class="start-table-button start-table-button-block" title="Już rozwiązałeś ten test">Rozpocznij</div>';
+				}
+			} else {
+				echo '<div class="start-table-button start-table-button-block" title="Test jeszcze się nie rozpoczął">Rozpocznij</div>';
+			}
+			'<a><div class="start-table-button">'.$row["contin"].' Rozpocznij '.$row["solutions"].'</div></a></td></tr>';
 		}
-		
-		mysqli_set_charset($conn,"utf8");
-		
-		//$sql = "SELECT test_id, test_name, subject_name, test_start, test_stop FROM SC_tests LEFT JOIN SC_subjects ON test_subj=subjectsID ORDER BY test_dateadd DESC";
-		$sql = "SELECT test_id, test_name, subject_name, test_start, test_stop, test_dateadd FROM SC_tests LEFT JOIN SC_subjects ON test_subj=subjectsID INNER JOIN SC_class_perm ON test_id=cp_test INNER JOIN SC_users ON cp_class=class WHERE usersID=".$userID." UNION SELECT test_id, test_name, subject_name, test_start, test_stop, test_dateadd FROM SC_tests LEFT JOIN SC_subjects ON test_subj=subjectsID INNER JOIN SC_group_perm ON test_id=grp_test INNER JOIN SC_gr_user ON grp_group=group_id INNER JOIN SC_users ON user=usersID WHERE usersID=".$userID." ORDER BY test_dateadd DESC LIMIT ".(15*($page-1)).", 15;";
+	} else {
+		echo '<tr><td class="start-table-name" colspan="5">Brak testów bieżących</td></tr>';
+	}
+?>
+			</table>
+<?php
+		$sql = "	SELECT FOUND_ROWS() AS how;";
 		$result = $conn->query($sql);
 		
-		if ($result->num_rows > 0) {
-			while($row = $result->fetch_assoc()) {
-				echo '<tr><td class="start-table-name"><a href="'.$httplocal.'/info/'.$row["test_id"].'">'.$row["test_name"].'</a></td><td class="start-table-date">'.$row["subject_name"].'</td><td class="start-table-date">'.date("d-m-Y H:i", strtotime($row["test_start"])).'</td><td class="start-table-date">'.date("d-m-Y H:i", strtotime($row["test_stop"])).'</td><td class="start-table-action"><a href="'.$httplocal.'/info/'.$row["test_id"].'"><div class="start-table-button">Info</div></a><a><div class="start-table-button">Rozpocznij</div></a></td></tr>';
-			}
-		} else {
-			echo '<tr><td class="start-table-name" colspan="5">Brak testów bieżących</td></tr>';
+		if($result->num_rows > 0){
+			$row = $result->fetch_assoc();
+			echo 'Znaleziono: '.$row["how"];
 		}
-
-				
-?>				
-				<!--<tr><td class="start-table-name"><a>Konkurs Sinus i cosunus</a></td><td class="start-table-date">Matematyka</td><td class="start-table-date">13-12-2015 20:15</td><td class="start-table-date">13-12-2015 23:15</td><td class="start-table-action"><a><div class="start-table-button" style="display: inline; padding: 0 7px;">Info</div></a><a><div class="start-table-button" style="display: inline; padding: 0 7px;">Rozpocznij</div></a></td></tr>-->
-			</table>
+		
+		$conn->close();
+?>
 		</div>
 		<?php include $phplocal.'/scripts/footer.php';?>
 	</body>

@@ -319,6 +319,9 @@ td.start-table-date {
 	display: inline;
 	padding: 0 7px;
 }
+.start-table-button-block {
+	background-color: #4a8fb5;
+}
 .start-table-button:hover {
 	background-color: #34647f;
 }
