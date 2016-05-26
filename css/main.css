@@ -329,6 +329,31 @@ td.start-table-date {
 .start-table-button-block:hover {
 	background-color: #4a8fb5;
 }
+.start-pages-box {
+	display: block;
+	text-align: center;
+	margin-top: 40px;
+}
+.start-pages-box-container {
+	display: inline;
+	margin: 0 auto;
+}
+.start-pages-button {
+	display: inline-block;
+	background-color: #001f4d;
+	padding: 3px 0;
+	margin: 3px;
+	font-size: 10px;
+	color: white;
+	width: 20px;
+	height: 14px;
+}
+.start-pages-button:hover {
+	background-color: #314968;
+}
+.start-pages-button-active {
+	background-color: #6699ff;
+}
 /* START */
 .start-box-icons {
 	height: 130px;

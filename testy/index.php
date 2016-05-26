@@ -13,6 +13,9 @@ $tmp = intval($_GET["p"]);
 if(is_int($tmp) & $tmp>1){
 	$page = $tmp;
 }
+if($tmp < 0){
+	header('Location: '.$httplocal.'/testy/1/');
+}
 $today = date('Y-m-d G:i:s');
 ?>
 <!DOCTYPE html>
@@ -107,7 +110,42 @@ $today = date('Y-m-d G:i:s');
 		$res_pages = ceil($res_count/15);
 		
 		if(($page > 1) && ($page > $res_pages)){
-			header('Location: '.$httplocal.'/testy/'.$res_pages);
+			header('Location: '.$httplocal.'/testy/'.$res_pages.'/');
+		}
+		
+		if($res_pages > 1){
+			echo '<div class="start-pages-box"><div class="start-pages-box-container">';
+			
+			$i_a = $page-3;
+			if($i_a < 1){
+				$i_a = 1;
+			}
+			if($i_a > 1){
+				echo '<a href="'.$httplocal.'/testy/1/"><div class="start-pages-button">1</div></a>';
+			}
+			if($i_a > 2){
+				echo '...';
+			}
+			for($i = $i_a; $i < $page; $i++){
+				echo '<a href="'.$httplocal.'/testy/'.$i.'/"><div class="start-pages-button">'.$i.'</div></a>';
+			}
+			echo '<a href="'.$httplocal.'/testy/'.$page.'/"><div class="start-pages-button start-pages-button-active">'.$page.'</div></a>';
+			
+			$i_b = $page+3;
+			if($i_b > $res_pages){
+				$i_b = $res_pages;
+			}
+			for($i = $page+1; $i <= $i_b; $i++){
+				echo '<a href="'.$httplocal.'/testy/'.$i.'/"><div class="start-pages-button">'.$i.'</div></a>';
+			}		
+			if($i_b < $res_pages-1){
+				echo '...';
+			}
+			if($i_b < $res_pages){
+				echo '<a href="'.$httplocal.'/testy/'.$res_pages.'/"><div class="start-pages-button">'.$res_pages.'</div></a>';
+			}
+			
+			echo '</div></div>';
 		}
 		
 		$conn->close();
