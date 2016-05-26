@@ -321,9 +321,13 @@ td.start-table-date {
 }
 .start-table-button-block {
 	background-color: #4a8fb5;
+	cursor: default;
 }
 .start-table-button:hover {
 	background-color: #34647f;
+}
+.start-table-button-block:hover {
+	background-color: #4a8fb5;
 }
 /* START */
 .start-box-icons {
