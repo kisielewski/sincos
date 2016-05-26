@@ -46,7 +46,7 @@ $today = date('Y-m-d G:i:s');
 			</div>
 		</div>	
 		<div class="main-container">
-			<h1 class="start-headline">Testy aktualne<?php echo $page; ?>
+			<h1 class="start-headline">Testy aktualne
 				<a href="<?php echo $httplocal;?>/testy_zakonczone"><div class="start-bookmark">Testy zakończone</div></a>
 				<a href="<?php echo $httplocal;?>/testy"><div class="start-bookmark-open">Testy aktualne</div></a>
 			</h1>
@@ -97,9 +97,17 @@ $today = date('Y-m-d G:i:s');
 		$sql = "	SELECT FOUND_ROWS() AS how;";
 		$result = $conn->query($sql);
 		
+		$res_count = 0;
+		
 		if($result->num_rows > 0){
 			$row = $result->fetch_assoc();
-			echo 'Znaleziono: '.$row["how"];
+			$res_count = $row["how"];
+		}
+		
+		$res_pages = ceil($res_count/15);
+		
+		if(($page > 1) && ($page > $res_pages)){
+			header('Location: '.$httplocal.'/testy/'.$res_pages);
 		}
 		
 		$conn->close();
