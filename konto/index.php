@@ -75,7 +75,7 @@ if ($result->num_rows > 0) {
 			<h2 class="article-title" id="o_projekcie">Grupy</h2>
 			<p class="article-paragraph">
 <?php
-$sql = "SELECT SC_groups.groups_name FROM SC_groups, SC_gr_user WHERE SC_gr_user.user=".$userID." AND SC_gr_user.group_id=SC_groups.groupsID";
+$sql = "SELECT SC_groups.groups_name FROM SC_groups, SC_gr_user WHERE SC_gr_user.gruser=".$userID." AND SC_gr_user.group_id=SC_groups.groupsID";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 	while($row = $result->fetch_assoc()){
