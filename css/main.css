@@ -436,3 +436,18 @@ td.start-table-date {
 .start-bookmark:hover {
 	background-color: #4a8fb5;
 }
+/* INFO */
+.info-record {
+	margin-top: 20px;
+}
+.info-label {
+	color: #3366cc;
+	font-size: 22px;
+	display: inline-block;
+	margin-right: 20px;
+}
+.info-content {
+	color: #49595E;
+	font-size: 17px;
+	display: inline-block;
+}
