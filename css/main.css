@@ -438,16 +438,21 @@ td.start-table-date {
 }
 /* INFO */
 .info-record {
-	margin-top: 20px;
+	margin: 15px 40px 0px;
 }
 .info-label {
 	color: #3366cc;
-	font-size: 22px;
+	font-size: 17px;
 	display: inline-block;
-	margin-right: 20px;
+	margin-right: 15px;
+	width: 130px;
+	vertical-align: middle;
+	text-align: center;
 }
 .info-content {
 	color: #49595E;
 	font-size: 17px;
 	display: inline-block;
+	width: 525px;
+	vertical-align: middle;
 }
