@@ -69,7 +69,7 @@ $today = date('Y-m-d G:i:s');
 	
 	if($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
-			echo '<tr><td class="start-table-name"><a href="'.$httplocal.'/info/'.$row["test_id"].'">'.$row["test_name"].'</a></td><td class="start-table-date">'.$row["subject_name"].'</td><td class="start-table-date">'.date("d-m-Y H:i", strtotime($row["test_start"])).'</td><td class="start-table-date">'.date("d-m-Y H:i", strtotime($row["test_stop"])).'</td><td class="start-table-action"><a href="'.$httplocal.'/info/'.$row["test_id"].'"><div class="start-table-button">Info</div></a>';
+			echo '<tr><td class="start-table-name"><a href="'.$httplocal.'/info/'.$row["test_id"].'/">'.$row["test_name"].'</a></td><td class="start-table-date">'.$row["subject_name"].'</td><td class="start-table-date">'.date("d-m-Y H:i", strtotime($row["test_start"])).'</td><td class="start-table-date">'.date("d-m-Y H:i", strtotime($row["test_stop"])).'</td><td class="start-table-action"><a href="'.$httplocal.'/info/'.$row["test_id"].'/"><div class="start-table-button">Info</div></a>';
 			if($row["test_start"] < $today){
 				if(($row["test_rep"] == 0) || ($row["test_rep"] > $row["solutions"])){
 					if($row["contin"] == 0){
