@@ -70,17 +70,17 @@ if($tmp < 0){
 		echo '<div class="info-record"><div class="info-label">Nazwa:</div><div class="info-content">'.$row["test_name"].'</div></div>';
 		echo '<div class="info-record"><div class="info-label">Opis:</div><div class="info-content">'.$row["test_desc"].'</div></div>';
 		echo '<div class="info-record"><div class="info-label">Przedmiot:</div><div class="info-content">'.$row["subject_name"].'</div></div>';
-		echo '<div class="info-record"><div class="info-label">Data rozpoczęcia:</div><div class="info-content">'.$row["test_start"].'</div></div>';
-		echo '<div class="info-record"><div class="info-label">Data zakończenia:</div><div class="info-content">'.$row["test_stop"].'</div></div>';
+		echo '<div class="info-record"><div class="info-label">Data rozpoczęcia:</div><div class="info-content">'.date("d-m-Y H:i:s", strtotime($row["test_start"])).'</div></div>';
+		echo '<div class="info-record"><div class="info-label">Data zakończenia:</div><div class="info-content">'.date("d-m-Y H:i:s", strtotime($row["test_stop"])).'</div></div>';
 		echo '<div class="info-record"><div class="info-label">Typ testu:</div><div class="info-content">'.$row["type_name"].'</div></div>';
 		echo '<div class="info-record"><div class="info-label">Ilość możliwych rozwiązań:</div><div class="info-content">';
 		if($row["test_rep"] == 0){
 			echo "brak ograniczeń";
 		} else {
-			echo $row["test_rep"].' rozwiązań';
+			echo $row["test_rep"];
 		}
 		echo '</div></div>';
-		echo '<div class="info-record"><div class="info-label">Data dodania:</div><div class="info-content">'.$row["test_stop"].'</div></div>';
+		echo '<div class="info-record"><div class="info-label">Data dodania:</div><div class="info-content">'.date("d-m-Y H:i", strtotime($row["test_stop"])).'</div></div>';
 		echo '<div class="info-record"><div class="info-label">Dodał:</div><div class="info-content">';
 		if($row["agree_name"] == 1){
 			echo $row["name"].' '.$row["surname"].' ['.$row["login"].']';
