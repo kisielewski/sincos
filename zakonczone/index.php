@@ -4,7 +4,7 @@ require '/virtual/itk.cba.pl/sincos/scripts/config.php';
 /
 /	Sinus cosinus - Patryk Kisielewski
 /
-/	Strona startowa
+/	Strona testy zakończone
 /
 ***************************************/
 require $phplocal.'/scripts/verification.php';
@@ -12,7 +12,7 @@ require $phplocal.'/scripts/verification.php';
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Sinus cosinus - Start</title>
+		<title>Sinus cosinus - Testy zakończone</title>
 		<meta charset="UTF-8">
 		<link rel="shortcut icon" href="<?php echo $httplocal;?>/images/sincos.ico"/>
 		<link rel="stylesheet" type="text/css" href="<?php echo $httplocal;?>/css/main.css">
@@ -23,7 +23,7 @@ require $phplocal.'/scripts/verification.php';
 		<div class="area-for-logo"></div>
 		<div class="headline">
 			<div class="headline-content">
-				<a href="/"><img src="<?php echo $httplocal;?>/images/logo_sincos.png" class="headline-logo"/></a>
+				<a href="<?php echo $httplocal;?>/"><img src="<?php echo $httplocal;?>/images/logo_sincos.png" class="headline-logo"/></a>
 			<div class="user-menu">
 					<div class="user-menu-head"><?php echo $users_login;?></div>
 					<a href="<?php echo $httplocal;?>/logout" class="user-menu-link"><div class="user-menu-content">Wyloguj</div></a>
@@ -40,29 +40,14 @@ require $phplocal.'/scripts/verification.php';
 			</div>
 		</div>	
 		<div class="main-container">
-			<h1 class="start-headline">Start</h1>
-			<div class="start-box">
-				<a href="<?php echo $httplocal;?>/testy">
-					<div class="start-box-icons">
-						<div class="start-box-img" style="background-image: url('<?php echo $httplocal;?>/images/test_b.jpg');"></div>
-						<div class="start-box-label">Testy aktualne</div>
-					</div>
-				</a>
-				<a href="<?php echo $httplocal;?>/zakonczone">
-					<div class="start-box-icons">
-						<div class="start-box-img" style="background-image: url('<?php echo $httplocal;?>/images/test_z.jpg');"></div>
-						<div class="start-box-label">Testy zakończone / wyniki</div>
-					</div>
-				</a>
-			</div>
-			<div class="start-box">
-				<a href="<?php echo $httplocal;?>/konto">
-					<div class="start-box-icons-red">
-						<div class="start-box-img" style="background-image: url('<?php echo $httplocal;?>/images/konto.jpg');"></div>
-						<div class="start-box-label-red">Konto</div>
-					</div>
-				</a>
-			</div>
+			<h1 class="start-headline">Testy zakończone
+				<a><div class="start-bookmark-open">Testy zakończone</div></a>
+				<a href="<?php echo $httplocal;?>/testy"><div class="start-bookmark">Testy aktualne</div></a>
+			</h1>
+			<table class="start-table">
+				<tr><th class="start-table-name">Nazwa</th><th class="start-table-date">Początek</th><th class="start-table-date">Koniec</th><th class="start-table-action">Akcja</th></tr>
+				<tr><td class="start-table-name"><a>Konkurs Sinus i cosunus</a></td><td class="start-table-date">13-12-2015 20:15</td><td class="start-table-date">13-12-2015 23:15</td><td class="start-table-action"><a><div class="start-table-button" style="display: inline; padding: 0 7px;">Info</div></a> <a><div class="start-table-button" style="display: inline; padding: 0 7px;">Mój wynik</div></a></td></tr>
+			</table>
 		</div>
 		<?php include $phplocal.'/scripts/footer.php';?>
 	</body>

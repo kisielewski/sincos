@@ -50,7 +50,7 @@ $today = date('Y-m-d G:i:s');
 		</div>	
 		<div class="main-container">
 			<h1 class="start-headline">Testy aktualne
-				<a href="<?php echo $httplocal;?>/testy_zakonczone"><div class="start-bookmark">Testy zakończone</div></a>
+				<a href="<?php echo $httplocal;?>/zakonczone"><div class="start-bookmark">Testy zakończone</div></a>
 				<a href="<?php echo $httplocal;?>/testy"><div class="start-bookmark-open">Testy aktualne</div></a>
 			</h1>
 			<table class="start-table">
