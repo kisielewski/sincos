@@ -67,7 +67,14 @@ if(!isset($_SESSION["login_token"])){
 					<div class="main-page-login-area">
 						<div class="main-page-login">
 							<form method="post" action="./">
-								  <span class="login-label">Login:</span><span id="error" class="login-error"><?php if($error_log == 1) echo "Błędny login lub hasło";?></span>
+								  <span class="login-label">Login:</span><span id="error" class="login-error">
+								  <?php 
+								  if($error_log == 1){
+									  echo "Błędny login lub hasło";
+								  } elseif(isset($_COOKIE['loginpage'])) {
+									  echo "Musisz być zalogowany";
+								  }
+								  ?></span>
 								  <input class="login-input<?php if($error_log == 1) echo " login-input-error"; ?>" type="text" name="login" value="<?php if(isset($_POST["login"])) echo $_POST["login"]; ?>">
 								  <span class="login-label">Hasło:</span>
 								  <input class="login-input<?php if($error_log == 1) echo " login-input-error"; ?>" type="password" name="passwd">

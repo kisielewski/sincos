@@ -45,7 +45,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				session_start();
 				$_SESSION["login_token"] = $token;
 				
-				header('Location: '.$httplocal.'/start');
+				if(isset($_COOKIE['loginpage'])){
+					$loginpage = $_COOKIE['loginpage'];
+					setcookie('loginpage', '', time()-3600, $httplocal);
+					//die($loginpage);
+					header('Location: '.$loginpage);
+				} else {
+					header('Location: '.$httplocal.'/start');
+				}
 				
 			} else {
 				$error_log = 1;
