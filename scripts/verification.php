@@ -37,11 +37,13 @@ if(isset($_SESSION["login_token"])){
 	} else {
 		setcookie('loginpage', $_SERVER['REQUEST_URI'], time()+120, $httplocal);
 		header('Location: '.$httplocal.'/logout');
+		exit;
 	}
 	
 	$conn->close();
 } else {
 	setcookie('loginpage', $_SERVER['REQUEST_URI'], time()+120, $httplocal);
 	header('Location: '.$httplocal);
+	exit;
 }
 ?>
