@@ -32,9 +32,11 @@ $result = $conn->query($sql);
 
 if($result->num_rows > 0) {
 	$row = $result->fetch_assoc();
-	if($row["quest_type"] == 1){
+	echo $row["quest_type"];
+	//if($row["quest_type"] == 1){
+		//echo "TAK";
 		require $phplocal.'/scripts/tests/quiz.php';
-	}
+	//}
 } else {
 	header('Location: '.$httplocal.'/start');
 }
