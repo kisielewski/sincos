@@ -3,9 +3,13 @@
 	width: 750px;
 	margin: 50px auto 0;
 	font-size: 0;
+	position: relative;
+	height: 455px;
 }
 .quiz-left-panel {
-	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 0;
 	width: 420px;
 	height: 420px;
 	border-style: solid;
@@ -13,7 +17,6 @@
 	border-color: #a6a6a6;
 	border-radius: 5px;
 	background-color: #fff;
-	vertical-align: top;
 }
 .quiz-bigbox {
 	display: table-cell;
@@ -24,11 +27,11 @@
 	font-size: 20px;
 }
 .quiz-right-panel {
-	display: inline-block;
+	position: absolute;
+	top: 0;
+	left: 434px;
 	width: 314px;
 	height: 424px;
-	margin-left: 10px;
-	vertical-align: top;
 }
 .quiz-round-box {
 	display: inline-block;
@@ -129,9 +132,9 @@
 .quiz-progressbar-question-box {
 	height: 5px;
 	width: 750px;
-	margin-top: 25px;
 	font-size: 0;
-	position: relative;
+	position: absolute;
+	bottom: 0;
 }
 .quiz-progressbar-question-bg {
 	height: 2px;
