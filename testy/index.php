@@ -69,19 +69,19 @@ $today = date('Y-m-d G:i:s');
 	
 	if($result->num_rows > 0) {
 		while($row = $result->fetch_assoc()) {
-			echo '<tr><td class="start-table-name"><a href="'.$httplocal.'/info/'.$row["test_id"].'/">'.$row["test_name"].'</a></td><td class="start-table-date">'.$row["subject_name"].'</td><td class="start-table-date">'.date("d-m-Y H:i", strtotime($row["test_start"])).'</td><td class="start-table-date">'.date("d-m-Y H:i", strtotime($row["test_stop"])).'</td><td class="start-table-action"><a href="'.$httplocal.'/info/'.$row["test_id"].'/"><div class="start-table-button">Info</div></a>';
+			echo '<tr><td class="start-table-name"><a href="'.$httplocal.'/info/'.$row["test_id"].'/">'.$row["test_name"].'</a></td><td class="start-table-date">'.$row["subject_name"].'</td><td class="start-table-date">'.date("d-m-Y H:i", strtotime($row["test_start"])).'</td><td class="start-table-date">'.date("d-m-Y H:i", strtotime($row["test_stop"])).'</td><td class="start-table-action"><a href="'.$httplocal.'/info/'.$row["test_id"].'/" class="start-table-button">Info</a>';
 			if(strtotime($row["test_start"]) < strtotime($today)+600){
 				if(($row["test_rep"] == 0) || ($row["test_rep"] > $row["solutions"])){
 					if($row["contin"] == 0){
-						echo '<a><div class="start-table-button" title="Rozwiąż nowy test">Rozpocznij</div></a>';
+						echo '<a href="'.$httplocal.'/rozwiaz/'.$row["test_id"].'/" class="start-table-button" title="Rozwiąż nowy test">Rozpocznij</a>';
 					} else {
-						echo '<a><div class="start-table-button" title="Dokończ rozpoczęty test">Kontynuuj</div></a>';
+						echo '<a href="'.$httplocal.'/rozwiaz/'.$row["test_id"].'/" class="start-table-button" title="Dokończ rozpoczęty test">Kontynuuj</a>';
 					}
 				} elseif($row["test_rep"] == $row["solutions"]){
 					if($row["contin"] == 0){
 						echo '<div class="start-table-button start-table-button-block" title="Już rozwiązałeś ten test">Rozpocznij</div>';
 					} else {
-						echo '<a><div class="start-table-button" title="Dokończ rozpoczęty test">Kontynuuj</div></a>';
+						echo '<a href="'.$httplocal.'/rozwiaz/'.$row["test_id"].'/" class="start-table-button" title="Dokończ rozpoczęty test">Kontynuuj</a>';
 					}
 				} else {
 					echo '<div class="start-table-button start-table-button-block" title="Już rozwiązałeś ten test">Rozpocznij</div>';
@@ -89,13 +89,13 @@ $today = date('Y-m-d G:i:s');
 			} else {
 				echo '<div class="start-table-button start-table-button-block" title="Test jeszcze się nie rozpoczął">Rozpocznij</div>';
 			}
-			'<a><div class="start-table-button">'.$row["contin"].' Rozpocznij '.$row["solutions"].'</div></a></td></tr>';
+			echo '</td></tr>';
 		}
 	} else {
 		echo '<tr><td class="start-table-name" colspan="5">Brak testów bieżących</td></tr>';
 	}
 ?>
-			</table>
+</table>
 <?php
 		$sql = "	SELECT FOUND_ROWS() AS how;";
 		$result = $conn->query($sql);
