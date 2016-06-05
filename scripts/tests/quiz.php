@@ -64,13 +64,13 @@ if(!isset($test)){
 				</div>
 				<div class="quiz-progressbar-round"></div>
 				<div class="quiz-smallbox-div"><div class="quiz-smallbox"></div></div>
-				<div class="quiz-button-grid"><div class="quiz-button">A</div></div>
-				<div class="quiz-button-grid quiz-button-grid-right"><div class="quiz-button">B</div></div>
-				<div class="quiz-button-grid"><div class="quiz-button">C</div></div>
-				<div class="quiz-button-grid quiz-button-grid-right"><div class="quiz-button">D</div></div>
+				<div class="quiz-button-grid"><div class="quiz-button inactive">A</div></div>
+				<div class="quiz-button-grid quiz-button-grid-right"><div class="quiz-button inactive">B</div></div>
+				<div class="quiz-button-grid"><div class="quiz-button inactive">C</div></div>
+				<div class="quiz-button-grid quiz-button-grid-right"><div class="quiz-button inactive">D</div></div>
 			</div>
 			<div class="quiz-progressbar-question-box">
-				<div class="quiz-progressbar-question"></div><div class="quiz-progressbar-question-bg"></div>
+				<div class="quiz-progressbar-question-bg"></div><div class="quiz-progressbar-question"></div>
 			</div>
 		</div>		
 		<?php include $phplocal.'/scripts/footer.php';?>
