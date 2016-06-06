@@ -20,6 +20,7 @@ if(!isset($test)){
 		<link rel="stylesheet" type="text/css" href="<?php echo $httplocal;?>/css/tests/quiz.css">
 		<meta name="author" content="Patryk Kisielewski">
 		<meta name="description" content="Platforma edukacyjna">
+		<script src="<?php echo $httplocal;?>/js/test/quiz.js"></script>
 	</head>
 	<body>
 		<div class="area-for-logo"></div>
