@@ -49,26 +49,26 @@ if(!isset($test)){
 			</div>
 			<div class="quiz-right-panel">
 				<div class="quiz-round-box">
-					<div class="quiz-round-number">1</div>
-					<div class="quiz-round-label">Runda</div>
+					<div class="quiz-round-number"></div>
+					<div class="quiz-round-label"></div>
 				</div>
 				<div class="quiz-counters-box">
-					<div class="quiz-question">Pytanie 1</div>
+					<div id="quiz-question" class="quiz-question"></div>
 					<div class="quiz-counter-line">
-						<div class="quiz-counter-label">Koniec rundy:</div>
-						<div class="quiz-counter">- s</div>
+						<div class="quiz-counter-label"></div>
+						<div class="quiz-counter"></div>
 					</div>
 					<div class="quiz-counter-line">
-						<div class="quiz-counter-label">Koniec pytania:</div>
-						<div class="quiz-counter">- s</div>
+						<div class="quiz-counter-label"></div>
+						<div class="quiz-counter"></div>
 					</div>
 				</div>
 				<div class="quiz-progressbar-round"></div>
-				<div class="quiz-smallbox-div"><div class="quiz-smallbox"></div></div>
-				<div class="quiz-button-grid"><div class="quiz-button inactive">A</div></div>
-				<div class="quiz-button-grid quiz-button-grid-right"><div class="quiz-button inactive">B</div></div>
-				<div class="quiz-button-grid"><div class="quiz-button inactive">C</div></div>
-				<div class="quiz-button-grid quiz-button-grid-right"><div class="quiz-button inactive">D</div></div>
+				<div class="quiz-smallbox-div"><div id="box2" class="quiz-smallbox"></div></div>
+				<div class="quiz-button-grid"><div class="quiz-button inactive"></div></div>
+				<div class="quiz-button-grid quiz-button-grid-right"><div class="quiz-button inactive"></div></div>
+				<div class="quiz-button-grid"><div class="quiz-button inactive"></div></div>
+				<div class="quiz-button-grid quiz-button-grid-right"><div class="quiz-button inactive"></div></div>
 			</div>
 			<div class="quiz-progressbar-question-box">
 				<div class="quiz-progressbar-question-bg"></div><div class="quiz-progressbar-question"></div>
