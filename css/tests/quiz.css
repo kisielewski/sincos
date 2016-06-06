@@ -84,7 +84,7 @@
 }
 .quiz-progressbar-round {
 	height: 5px;
-	width: 100px;
+	width: 0;
 	margin: 0;
 	background-color: red;
 }
@@ -146,7 +146,7 @@
 }
 .quiz-progressbar-question {
 	height: 5px;
-	width: 50px;
+	width: 0;
 	vertical-align: top;
 	background-color: #000099;
 	position: absolute;
