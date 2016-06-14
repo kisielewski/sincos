@@ -65,10 +65,10 @@ if(!isset($test)){
 				</div>
 				<div class="quiz-progressbar-round"></div>
 				<div class="quiz-smallbox-div"><div id="box2" class="quiz-smallbox"></div></div>
-				<div class="quiz-button-grid"><div class="quiz-button inactive"></div></div>
-				<div class="quiz-button-grid quiz-button-grid-right"><div class="quiz-button inactive"></div></div>
-				<div class="quiz-button-grid"><div class="quiz-button inactive"></div></div>
-				<div class="quiz-button-grid quiz-button-grid-right"><div class="quiz-button inactive"></div></div>
+				<div class="quiz-button-grid"><div class="quiz-button inactive" id="button1"></div></div>
+				<div class="quiz-button-grid quiz-button-grid-right"><div class="quiz-button inactive" id="button2"></div></div>
+				<div class="quiz-button-grid"><div class="quiz-button inactive" id="button3"></div></div>
+				<div class="quiz-button-grid quiz-button-grid-right"><div class="quiz-button inactive" id="button4"></div></div>
 			</div>
 			<div class="quiz-progressbar-question-box">
 				<div class="quiz-progressbar-question-bg"></div><div class="quiz-progressbar-question"></div>
